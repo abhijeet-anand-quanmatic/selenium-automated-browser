@@ -111,7 +111,7 @@ if __name__ == "__main__":
     collected_data = []
     url = "https://quanmatic.com/"
 
-    for _ in range(random.randint(6, 10)):
+    for _ in range(random.randint(12, 20)):
         selected_os = random.choice(OS_TYPES)  # Pick a random OS
         session_duration = random.randint(10, 50)  # Random session duration
 
