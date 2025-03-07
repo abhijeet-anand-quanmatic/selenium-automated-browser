@@ -1,0 +1,35 @@
+name: Selenium Bot Automation
+
+# Controls when the workflow will run
+on:
+  schedule:
+    # Runs every hour
+    - cron: '0 * * * *'
+
+  workflow_dispatch:  # Allows manual trigger of the workflow
+
+jobs:
+  run_selenium_bot:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'  # Specify the Python version you need
+
+      # Step 3: Install dependencies
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      # Step 4: Run the Selenium script
+      - name: Run Selenium Bot
+        run: |
+          python script.py
